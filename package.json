@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jerseycity19/team-4#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mariadb": "^2.1.1"
   }
 }
