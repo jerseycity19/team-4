@@ -1,6 +1,5 @@
 function onAccessCodeFormSubmit(e) {
     e.preventDefault();
-    console.log('Clicked');
     
     var accessCode = document.getElementById('access-code-input').value;
     console.log('Access:', accessCode);
