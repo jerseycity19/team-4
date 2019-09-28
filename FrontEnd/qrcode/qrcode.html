@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+	<div id="qrcode">
+
+ 	</div>
+
+ 	<script src="qrcode.js"></script>
+ 	<script>
+ 	var qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: "https://www.scholarsatrisk.org/secure-submission/",
+	width: 128,
+	height: 128,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+	});
+	qrcode.makeCode('your access code is codeforgood85492');
+ 	</script>
+</body>
+</html>
