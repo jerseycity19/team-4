@@ -24,15 +24,20 @@ function checkCode(code) {
     .then(conn => {
         conn.query(`select start_time,end_time,number_people from accesscode where code = ${code}`)
         .then((rows) => {
-            if (rows[0].number_people == 0 ||
+            if (rows[0].number_people <= 0 ||
                 (rows[0].start_time >= Date.now() &&
                 rows[0].end_time <= Date.now())) {
                 res(false);
             } else {
                 console.log(Date.now());
-                res(true);
+                return conn.query(`update accesscode set number_people = ${rows[0].number_people - 1} where code = ${code}`)
+                
             }
-        }).catch(err => res(false)) // if an error, just say the code is not valid
+        })
+        .then(rows => {
+            res(true);
+        })
+        .catch(err => res(false)) // if an error, just say the code is not valid
     })
     .catch(err => res(false));
   })
