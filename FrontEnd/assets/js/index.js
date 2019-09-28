@@ -17,4 +17,9 @@ $(document).ready(() => {
           window.location.pathname = '/form2.html';
         })
   })
+
+  $('#survey-btn').click((event) => {
+    var identification = document.getElementsById('identification').value;
+    console.log('hello');
+  })
 })
