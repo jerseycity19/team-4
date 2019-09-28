@@ -19,18 +19,18 @@ function checkCode(code) {
     pool.getConnection()
         // First, check for number of tries remaining
         // SELECT numTriesRemaining FROM accessCodes WHERE accessCode = code
-        if (result = 0 || result ISNULL) {
+        // if (result = 0 || result ISNULL) {
             // Either prompt that access code is invalid or simply guide them
             // to the form without access code
-        }
+        // }
 
         // At this point, we know that the access code exists
         // Now, check that access code has not been expired
         // SELECT expirationDate FROM accessCodes WHERE accessCode = code
-        if (currDate > result) {
+        // if (currDate > result) {
             // Access code has expired. Decide whether to tell them
             // code is expired or to simply guide to form without access code
-        }
+        // }
 
         // If it gets to this point, access code is valid and can be used
         // So, we need to update the database to record this use of the access code
@@ -40,22 +40,20 @@ function checkCode(code) {
 }
 
 // Generate a unique code 
-function createCode()
+function createCode() {
+
+}
 
 // pool.getConnection()
-// .then(conn => console.log("Connection:", conn))
-// .catch(err => console.log("err:", err))
-
-pool.getConnection()
-.then(conn => {
-    // console.log('Connection:', conn);
-    conn.query(`INSERT INTO accesscode value(12, 12, 12, ${(new Date()).getTime()}, ${(new Date()).getTime()}, 1)`)
-    .then(completion => {
-        console.log('Success:', completion);
-    })
-    .catch(err => console.log(err));
-})
-.catch(err => console.log(err));
+// .then(conn => {
+//     // console.log('Connection:', conn);
+//     conn.query(`INSERT INTO accesscode value(12, 12, 12, ${(new Date()).getTime()}, ${(new Date()).getTime()}, 1)`)
+//     .then(completion => {
+//         console.log('Success:', completion);
+//     })
+//     .catch(err => console.log(err));
+// })
+// .catch(err => console.log(err));
 
 // pool.getConnection()
 // .then(conn => {

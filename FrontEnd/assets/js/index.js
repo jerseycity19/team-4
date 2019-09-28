@@ -1,10 +1,11 @@
-import axios from 'axios';
-
-function onAccessCodeFormSubmit() {
+function onAccessCodeFormSubmit(e) {
+    e.preventDefault();
+    console.log('Clicked');
+    
     var accessCode = document.getElementById('access-code-input').value;
     console.log('Access:', accessCode);
 
-    axios.post('/api/checkValidity', { "accessCode": accessCode })
+    axios.post('/api/checkAccessCodeValidity', { "accessCode": accessCode })
         .then(response => {
             if (response.isValid) {
                 console.log("IT'S VALID");
@@ -12,5 +13,6 @@ function onAccessCodeFormSubmit() {
                 console.log("NOT VALID");
             }
         })
+
 }
 
