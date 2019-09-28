@@ -94,8 +94,7 @@ app.post('/api/checkAccessCodeValidity', (req, response) => {
 });
 
 app.post('/api/createevent', (req, res) => {
-    var eventData = req.params;
-    console.log('event data', req.params, eventData, eventData.name);
+    var eventData = req.boxy;
     var eventAccessCode = createCode();
     // Add event to database
     res.json({ accessCode: eventAccessCode });

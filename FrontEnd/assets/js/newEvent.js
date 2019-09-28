@@ -9,7 +9,7 @@ function onCreateNewEvent() {
 
     console.log(eventData);
     axios.post('/api/createevent', { name: 'hey' })
-        .then(response => {
-
+        .then(({ data }) => {
+            console.log(data);
         })
 }
