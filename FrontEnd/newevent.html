@@ -1,25 +1,29 @@
 <html>
-<head></head>
+<head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
 <body>
     <h1>Create Event:</h1>
     <p>Event Name</p>
-    <input id="eventNameInput" type="text" />
+    <input class = UserInput input id="Event" type="text" />
     
     <p>Start Data</p>
-    <input id="eventStartDate" type="date" />
+    <input class = UserInput input id="eventStartDate" type="date" />
 
     <p>End Date</p>
-    <input id="eventEndDate" type="date" />
+    <input class = UserInput input id="eventEndDate" type="date" />
 
     <p>Event Type</p>
-    <input id="eventType" type="text" />
+    <input class = UserInput input id="eventType" type="text" />
 
     <p>Number of People:</p>
-    <input type="number" id="numPeople" />
+    <input class = UserInput input type="number" id="numPeople" />
 
     <br /><br />
-    <button onclick="onCreateNewEvent()">Create Event</button>
-
+   <!--- <button onclick="onCreateNewEvent()">Create Event</button> -->
+   <div class="enjoy-css">Submit</div>
+   <link async href="http://fonts.googleapis.com/css?family=Advent%20Pro" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+   
     <br /><br />
     <p>Access Code:</p>
     <p id="accessCode"></p>
