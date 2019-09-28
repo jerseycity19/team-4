@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         accessCode = window.localStorage.getItem('accessCode');
         isAccessCodeValid = window.localStorage.getItem('isValid');
         console.log("ACCESS:", accessCode, isAccessCodeValid);
+    } else {
+        console.log("No Access code found");
     }
 
     $('#survey-btn').click(() => {
