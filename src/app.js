@@ -228,6 +228,17 @@ app.get('/api/geteventsdata', (req, res) => {
     .catch(err => res.status(500));
 });
 
+app.get('/api/getresponses', (req, res) => {
+    pool.getConnection()
+    .then(conn => {
+        conn.query('SELECT * from users')
+        .then(rows => {
+            res.json({ data: rows });
+        })
+        .catch(err => res.status(500));
+    })
+})
+
 app.use(express.static('FrontEnd'))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

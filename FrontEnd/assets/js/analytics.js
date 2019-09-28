@@ -4,6 +4,7 @@ $(document).ready(() => {
     getLatestData();
     getUnvalidatedData();
     getEventRows();
+    // downloadAsCSV();
 
     function getUnvalidatedData() {
         return new Promise((resolve, reject) => {
@@ -135,3 +136,24 @@ $(document).ready(() => {
     }
 });
 
+function downloadAsCSV() {
+    axios.get('/api/getresponses')
+    .then(({ data }) => {
+        var data = data.data;
+        console.log(data);
+        var csvString = "data:text/csv;charset=utf-8,";
+        csvString += Object.keys(data[0]).join(',') + '\n';
+        data.forEach(row => {
+            csvString += Object.values(row).join(',') + '\n';
+        })
+        console.log(csvString);
+
+        var encodedUri = encodeURI()
+        var element = document.createElement('a');
+        element.setAttribute('href', encodeURIComponent(csvString));
+        element.setAttribute('download', 'responses.csv');
+        element.style.display = 'none';
+
+        element.click();
+    })
+}
