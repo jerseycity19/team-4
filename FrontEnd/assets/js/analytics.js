@@ -3,6 +3,7 @@ $(document).ready(() => {
     getDemographicData();
     getLatestData();
     getUnvalidatedData();
+    getEventRows();
 
     function getUnvalidatedData() {
         return new Promise((resolve, reject) => {
@@ -49,7 +50,7 @@ $(document).ready(() => {
                         }]
                     },
                     options: {
-                        responsive: false,
+                        responsive: true,
                         scales: {
                         xAxes: [{
                             ticks: {
@@ -113,6 +114,23 @@ $(document).ready(() => {
             });
             console.log(donutChart);
 
+        })
+    }
+
+    function getEventRows() {
+        var dataTable = document.getElementById('events-table-body');
+
+        axios.get('/api/geteventsdata')
+        .then(({ data }) => {
+            var data = data.data;
+            var innerHtmlString = '';
+            data.forEach(row => {
+                innerHtmlString += `<tr><td>${row.event_name}</td><td>${row.original_num_people - row.number_people}</td><td>${moment.utc(row.start_date).format('MM/DD/YYYY')}</td></tr>`
+            })
+            dataTable.innerHTML = innerHtmlString;
+        })
+        .catch(err => {
+            alert(err);
         })
     }
 });

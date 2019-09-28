@@ -33,6 +33,7 @@ function checkCode(code) {
                 return conn.query(`update accesscode set number_people = ${rows[0].number_people - 1} where code = ${code}`)
                 
             }
+            conn.end();
         })
         .then(rows => {
             res(true);
@@ -118,16 +119,18 @@ app.post('/api/createevent', (req, res) => {
   pool.getConnection()
       .then(conn => {
             conn.query(
-                    'INSERT INTO accesscode value (?, ?, ?, ?, ?, ?, ?, ?)',
+                    'INSERT INTO accesscode value (?, ?, ?, ?, ?, ?, ?, ?, ?)',
                     [
-                    null, eventAccessCode, e.userId, e.startDate, e.endDate,
+                    null, eventAccessCode, e.userId, e.startDate, e.endDate, e.numPeople,
                     e.numPeople, e.name, e.type
                     ])
                 .then(result => {
-                console.log('result:', result);
-                res.json({accessCode: eventAccessCode});
+                    console.log('result:', result);
+                    res.json({accessCode: eventAccessCode});
+                    conn.end();
                 })
-                .catch(err => console.log(err))})
+                .catch(err => console.log(err))
+        })
       .catch(err => console.log(err));
 });
 
@@ -148,8 +151,9 @@ app.post('/api/submitform',(req, res) => {
     pool.getConnection()
     .then(conn => {
         conn.query('INSERT into users value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', queryParams)
-        .then(result => {
+        .then(() => {
             res.json({ success: true });
+            conn.end();
         })
         .catch(err => {
             console.log(err);
@@ -170,6 +174,8 @@ app.get('/api/getunvalidated', (req, res) => {
         .then(rows => {
             res.json({data: rows});
         })
+
+        conn.end();
     })
 });
 
@@ -177,6 +183,7 @@ app.get('/api/getvalidated', (req, res) => {
     pool.getConnection()
     .then(conn => {
         conn.query("SELECT count(user_id), country from users where code_flag = 'true' group by country")
+        conn.end();
     })
 });
 
@@ -184,13 +191,15 @@ app.get('/api/latestresponses', (req, res) => {
     // Query
     pool.getConnection()
     .then(conn => {
-        conn.query('SELECT * FROM users ORDER BY user_id ASC LIMIT 5')
+        conn.query('SELECT * FROM users ORDER BY user_id DESC LIMIT 5')
         .then(rows => {
-            res.json({ data: rows })
+            res.json({ data: rows });
+            conn.end();
         })
         .catch(err => {
             res.status(500);
             console.log("ERROR getting latest responses:", err);
+            conn.end();
         });
     })
 });
@@ -200,9 +209,23 @@ app.get('/api/demographicsdata', (req, res) => {
     .then(conn => {
         conn.query("SELECT count(user_id), gender from users group by gender")
         .then(rows => {
-            res.json({ data: rows })
+            res.json({ data: rows });
+            conn.end();
         })
     })
+});
+
+app.get('/api/geteventsdata', (req, res) => {
+    pool.getConnection()
+    .then(conn => {
+        conn.query('SELECT * from accesscode')
+        .then(rows => {
+            res.json({ data: rows });
+            conn.end();
+        })
+        .catch(err => res.status(500));
+    })
+    .catch(err => res.status(500));
 });
 
 app.use(express.static('FrontEnd'))

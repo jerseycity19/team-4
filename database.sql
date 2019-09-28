@@ -38,6 +38,7 @@ CREATE TABLE accesscode(
     user_id INT UNSIGNED NOT NULL,
     start_time  INT UNSIGNED NOT NULL,
     end_time  INT UNSIGNED NOT NULL,
+    original_num_people INT UNSIGNED NOT NULL,
     number_people INT UNSIGNED NOT NULL,
     event_name VARCHAR(30) NOT NULL,
     event_type VARCHAR(30) NOT NULL
