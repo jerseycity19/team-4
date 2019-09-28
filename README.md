@@ -6,4 +6,9 @@
 - Database
 - QR Code
 
-A
+##### Contributors
+- Nasir Kasumu
+- Charles Bethin
+- Eddie Ozuna
+- Jorge Garza
+- Constance Xu
