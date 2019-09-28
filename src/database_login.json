@@ -1,6 +1,6 @@
 {
     "host": "localhost",
     "user": "root",
-    "password": "",
-    "database": "scholarinfo"
+    "password": "password",
+    "database": "mydb"
 }

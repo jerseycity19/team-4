@@ -26,7 +26,7 @@ chance_of_self_censor VARCHAR(30) NOT NULL
 
 CREATE TABLE accesscode(
     key_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    code INT UNSIGNED NOT NULL,
+    code VARCHAR(30) NOT NULL,
     user_id INT UNSIGNED NOT NULL,
     start_time  INT UNSIGNED NOT NULL,
     end_time  INT UNSIGNED NOT NULL,

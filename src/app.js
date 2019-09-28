@@ -21,27 +21,20 @@ const port = 3000;
 function checkCode(code) {
   return new Promise((res, rej) => {
     pool.getConnection()
-        .then(
-            conn => {
-
-                conn.query(
-                        `select start_time,end_time,number_people from accesscode where code = ${
-                            code}`)
-                    .then((rows) => {
-                      console.log(rows[0].start_time);
-                      if (rows[0].number_people == 0 ||
-                          (rows[0].start_time >= Date.now() &&
-                           rows[0].end_time <= Date.now())) {
-                        res(false);
-                      } else {
-                        console.log(Date.now());
-                        res(true);
-                      }
-                    })})
-        .catch(
-            err => {
-                // not connected
-            });
+    .then(conn => {
+        conn.query(`select start_time,end_time,number_people from accesscode where code = ${code}`)
+        .then((rows) => {
+            if (rows[0].number_people == 0 ||
+                (rows[0].start_time >= Date.now() &&
+                rows[0].end_time <= Date.now())) {
+                res(false);
+            } else {
+                console.log(Date.now());
+                res(true);
+            }
+        }).catch(err => rej(err))
+    })
+    .catch(err => rej(err));
   })
 
   // First, check for number of tries remaining
@@ -98,8 +91,6 @@ function createCode() {
   return String(Math.random());
 }
 
-function checkValidity(code) {}
-
 
 app.get(
     '/api/newaccesscode',
@@ -114,6 +105,7 @@ app.post('/api/checkAccessCodeValidity', (req, response) => {
         response.json({isValid: isValid})
       })
       .catch(err => {
+          response.status(500);
         console.log(err);
       });
 });
