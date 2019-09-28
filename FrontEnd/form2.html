@@ -17,12 +17,8 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
-<<<<<<< HEAD
-<body><img class="logo" src="assets/img/sarLogo.jpg" style="width: 200px;">
-=======
 <body>
     <div class="container d-lg-flex justify-content-lg-center align-items-lg-center" style="margin-top: 20px;padding: 10px;"><img src="assets/img/sarLogo.jpg" style="width: 200px;"></div>
->>>>>>> dfec34621c790956eb45d8760bcb5cb83b6e8909
     <div class="simple-slider">
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -34,14 +30,14 @@
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>I&nbsp;am a...</strong></p><select
                             style="margin-bottom: 20px;" id="identification">
                             <optgroup label="I am a...">
-                                <option value="1" selected="">Scholar</option>
-                                <option value="2">Student</option>
-                                <option value="3">Administrator</option>
-                                <option value="4">Non-university</option>
+                                <option value="Scholar" selected="">Scholar</option>
+                                <option value="Student">Student</option>
+                                <option value="Administrator">Administrator</option>
+                                <option value="Non-university">Non-university</option>
                             </optgroup>
                         </select>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Age Range</strong></p><select
-                            style="margin-bottom: 20px;">
+                            style="margin-bottom: 20px;" id="ageRange">
                             <optgroup label="Age Range">
                                 <option value="20-29" selected="">20-29</option>
                                 <option value="30-39">30-39</option>
@@ -52,26 +48,26 @@
                             </optgroup>
                         </select>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Gender</strong></p><select
-                            style="margin-bottom: 20px;">
+                            style="margin-bottom: 20px;" id="gender">
                             <optgroup label="Gender">
-                                <option value="1" selected="">Male</option>
-                                <option value="2">Female</option>
-                                <option value="3">Nonbinary</option>
+                                <option value="Male" selected="">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Nonbinary">Nonbinary</option>
                             </optgroup>
                         </select>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Area of Origin</strong></p><select
-                            style="margin-bottom: 20px;">
+                            style="margin-bottom: 20px;" id="country">
                             <optgroup label="Area of Origin">
-                                <option value="1" selected="">North America</option>
-                                <option value="2">South/Central America</option>
-                                <option value="3">Middle East</option>
-                                <option value="4">North Africa</option>
-                                <option value="6">Sub-Saharan Africa</option>
-                                <option value="6">East Asia</option>
-                                <option value="7">Southeast Asia</option>
-                                <option value="8">Europe</option>
-                                <option value="9">Central Asia</option>
-                                <option value="10">Pacific</option>
+                                <option value="North America" selected="">North America</option>
+                                <option value="South/Central America">South/Central America</option>
+                                <option value="Middle East">Middle East</option>
+                                <option value="North Africa">North Africa</option>
+                                <option value="Sub-Saharan Africa">Sub-Saharan Africa</option>
+                                <option value="East Asia">East Asia</option>
+                                <option value="Southeast Asia">Southeast Asia</option>
+                                <option value="Europe">Europe</option>
+                                <option value="Central Asia">Central Asia</option>
+                                <option value="Pacific">Pacific</option>
                             </optgroup>
                         </select>
                     </div>
@@ -82,45 +78,45 @@
                         style="margin-right: 6em;margin-left: 6em;margin-top: 10px;margin-bottom: 10px;height: 400px;">
                         <p></p>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Primary Professional
-                                Language</strong></p><select style="margin-bottom: 20px;">
+                                Language</strong></p><select style="margin-bottom: 20px;" id="language">
                             <optgroup label="Primary Professional Language">
-                                <option value="1" selected="">English</option>
-                                <option value="2">Spanish</option>
-                                <option value="3">French</option>
-                                <option value="4">Other</option>
+                                <option value="English" selected="">English</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="French">French</option>
+                                <option value="Other">Other</option>
                             </optgroup>
                         </select>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Employment Status</strong></p>
-                        <select style="margin-bottom: 20px;">
+                        <select style="margin-bottom: 20px;" id="employmentStatus">
                             <optgroup label="Employment Status">
-                                <option value="1" selected="">Tenure or other permanent appointment</option>
-                                <option value="2">Full-time time-limited contract</option>
-                                <option value="3">Adjunct or part-time contract</option>
-                                <option value="4">Part-time no contract</option>
-                                <option value="5">Not employed</option>
+                                <option value="Tenure or other permanent appointment" selected="">Tenure or other permanent appointment</option>
+                                <option value="Full-time time-limited contract">Full-time time-limited contract</option>
+                                <option value="Adjunct or part-time contract">Adjunct or part-time contract</option>
+                                <option value="Part-time no contract">Part-time no contract</option>
+                                <option value="Not employed">Not employed</option>
                             </optgroup>
                         </select>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Discple Area</strong></p><select
-                            style="margin-bottom: 20px;">
+                            style="margin-bottom: 20px;" id="discipline">
                             <optgroup label="Disciple Area">
-                                <option value="1" selected="">Natural Sciences</option>
-                                <option value="2">Social Sciences</option>
-                                <option value="3">Arts and Humanities</option>
-                                <option value="4">Engineering</option>
-                                <option value="5">Computer Science</option>
-                                <option value="6">Medicine</option>
-                                <option value="8">Business/Finance</option>
-                                <option value="9">Law/Human Rights</option>
-                                <option value="10">Other</option>
+                                <option value="Natural Sciences" selected="">Natural Sciences</option>
+                                <option value="Social Sciences">Social Sciences</option>
+                                <option value="Arts and Humanities">Arts and Humanities</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Business/Finance">Business/Finance</option>
+                                <option value="Law/Human Rights">Law/Human Rights</option>
+                                <option value="Other">Other</option>
                             </optgroup>
                         </select>
                         <p style="font-family: 'Libre Baskerville', serif;"><strong>Work Sensitivity</strong></p><select
-                            style="margin-bottom: 20px;">
+                            style="margin-bottom: 20px;" id="sensitivity">
                             <optgroup label="How sensitive is your work?">
-                                <option value="1" selected="">Not very sensitive</option>
-                                <option value="2">Somewhat sensitive</option>
-                                <option value="3">More sensitive than most</option>
-                                <option value="4">Extremely sensitive</option>
+                                <option value="Not very sensitive" selected="">Not very sensitive</option>
+                                <option value="Somewhat sensitive">Somewhat sensitive</option>
+                                <option value="More sensitive than most">More sensitive than most</option>
+                                <option value="Extremely sensitive">Extremely sensitive</option>
                             </optgroup>
                         </select>
                     </div>
@@ -146,12 +142,12 @@
                             your professional expression (research, teaching/studies, publication, public expression)
                             because of fear of professional, legal, or violent retaliation?</p>
                         <select class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center"
-                            style="margin-bottom: 15px;">
+                            style="margin-bottom: 15px;" id="q1">
                             <optgroup label="Select One">
-                                <option value="1" selected="">Never</option>
-                                <option value="2">Sometimes</option>
-                                <option value="3">Frequently</option>
-                                <option value="4">All the time</option>
+                                <option value="Never" selected="">Never</option>
+                                <option value="Sometimes">Sometimes</option>
+                                <option value="Frequently">Frequently</option>
+                                <option value="All the time">All the time</option>
                             </optgroup>
                         </select>
                     </div>
@@ -160,15 +156,15 @@
                             colleagues or students might fear that would cause you to self-censor your professional
                             expression (research, teaching/studies, publication, public expression)?</p>
                         <select class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center"
-                            style="margin-bottom: 15px;">
+                            style="margin-bottom: 15px;" id="q2">
                             <optgroup label="Select One">
-                                <option value="1" selected="">Colleagues/professional peers</option>
-                                <option value="2">University/employer</option>
-                                <option value="3">Home country government</option>
-                                <option value="4">Foreign country government</option>
-                                <option value="5">society/public</option>
-                                <option value="6">not sure</option>
-                                <option value="7">no fear of consequences</option>
+                                <option value="Colleagues/professional peers" selected="">Colleagues/professional peers</option>
+                                <option value="University/employer">University/employer</option>
+                                <option value="Home country government">Home country government</option>
+                                <option value="Foreign country government">Foreign country government</option>
+                                <option value="society/public">society/public</option>
+                                <option value="not sure">not sure</option>
+                                <option value="no fear of consequences">no fear of consequences</option>
                             </optgroup>
                         </select>
                     </div>
@@ -176,11 +172,11 @@
                         <p class="text-center">Since the start of the last academic year, have you experienced any
                             professional, legal or violent retaliation for your professional expression (Research,
                             teaching/studies, publication, public expression).</p><select
-                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center">
+                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center" id="q3">
                             <optgroup label="Select One">
-                                <option value="1" selected="">Yes</option>
-                                <option value="2">No</option>
-                                <option value="3">Not sure</option>
+                                <option value="Yes" selected="">Yes</option>
+                                <option value="No">No</option>
+                                <option value="Not sure">Not sure</option>
                             </optgroup>
                         </select>
                     </div>
@@ -192,7 +188,7 @@
                             professional colleagues or students who have experienced any professional, legal, or violent
                             retaliation for their professional expression (research, teaching/studies,
                             publication, public expression).</p><select
-                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center">
+                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center" id="q4">
                             <optgroup label="Select One">
                                 <option value="1" selected="">Yes</option>
                                 <option value="2">No</option>
@@ -206,7 +202,7 @@
                             (research, teaching/studies, publication, public expression) because
                             of fear of professional, legal, violent retaliation?</p><select
                             class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center"
-                            style="margin-bottom: 15px;">
+                            style="margin-bottom: 15px;" id="q5">
                             <optgroup label="Select One">
                                 <option value="1" selected="">Never</option>
                                 <option value="2">Sometimes</option>
@@ -223,12 +219,12 @@
                             professional colleagues or students to self-censor their professional expression (research,
                             teaching/studies, publication, public expression) because of fear
                             of professional, legal or violent retaliation?</p><select
-                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center">
+                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center" id="q6">
                             <optgroup label="Select One">
-                                <option value="1" selected="">Never</option>
-                                <option value="2">Sometimes</option>
-                                <option value="3">Frequently</option>
-                                <option value="4">All the time</option>
+                                <option value="Never" selected="">Never</option>
+                                <option value="Sometimes">Sometimes</option>
+                                <option value="Frequently">Frequently</option>
+                                <option value="All the time">All the time</option>
                             </optgroup>
                         </select>
                     </div>
@@ -237,18 +233,19 @@
                             less likely today to self-censor your professional expression (research, teaching/studies.
                             publication, public expression) because of fear of professional, legal
                             or violent retaliation?</p><select
-                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center">
+                            class="d-lg-flex align-self-center justify-content-lg-center align-items-lg-center" id="q7">
                             <optgroup label="Select One">
-                                <option value="1" selected="">More likely </option>
-                                <option value="2">Less Likely</option>
-                                <option value="3">About the same</option>
+                                <option value="More likely" selected="">More likely </option>
+                                <option value="Less Likely">Less Likely</option>
+                                <option value="About the same">About the same</option>
                             </optgroup>
                         </select>
                     </div>
-                    <div class="container text-center"></div><button id="survey-btn" class="btn btn-primary text-center"
-                        role="button"
-                        style="background-color: rgba(73,197,242,0.32);font-family: 'Libre Baskerville', serif;margin-top: 40px;width: 400px;">SUBMIT
-                        INFORMATION ANONYMOUSLY</button>
+                    <div class="container text-center"></div>
+                    <button id="survey-btn" class="btn btn-primary text-center"
+                        style="background-color: rgba(73,197,242,0.32);font-family: 'Libre Baskerville', serif;margin-top: 40px;width: 400px;">
+                        SUBMIT INFORMATION ANONYMOUSLY
+                    </button>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -260,12 +257,8 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
-<<<<<<< HEAD
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="assets/js/index.js"></script>
-=======
     <script src="assets/js/survey.js"></script>
->>>>>>> dfec34621c790956eb45d8760bcb5cb83b6e8909
 </body>
 
 </html>

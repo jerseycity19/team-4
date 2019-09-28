@@ -1,14 +1,15 @@
 CREATE TABLE users(
 user_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-identification VARCHAR(30) NOT NULL,
-age_range VARCHAR(30) NOT NULL,
-gender CHAR(1) NOT NULL,
-country VARCHAR(50) NOT NULL,
-primary_language VARCHAR(50) NOT NULL,
-employment_status VARCHAR(50) NOT NULL,
-disciple_area VARCHAR(50) NOT NULL,
-code_flag VARCHAR(20) NULL,
-sensitivity INT UNSIGNED NOT NULL
+identification VARCHAR(100) NOT NULL,
+age_range VARCHAR(100) NOT NULL,
+gender CHAR(100) NOT NULL,
+country VARCHAR(100) NOT NULL,
+primary_language VARCHAR(100) NOT NULL,
+employment_status VARCHAR(100) NOT NULL,
+disciple_area VARCHAR(100) NOT NULL,
+access_code VARCHAR(100) NOT NULL,
+code_flag VARCHAR(100) NULL,
+sensitivity VARCHAR(100) NOT NULL
 );
 
 

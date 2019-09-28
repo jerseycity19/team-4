@@ -91,13 +91,6 @@ function createCode() {
   return String(Math.random());
 }
 
-
-app.get(
-    '/api/newaccesscode',
-    (req, res) => {
-
-    })
-
 app.post('/api/checkAccessCodeValidity', (req, response) => {
   checkCode(req.body.accessCode)
       .then(isValid => {
@@ -120,27 +113,42 @@ app.post('/api/createevent', (req, res) => {
   console.log(e);
 
   pool.getConnection()
-      .then(
-          conn => {
-              conn.query(
-                      'INSERT INTO accesscode value (?, ?, ?, ?, ?, ?, ?, ?)',
-                      [
-                        null, eventAccessCode, e.userId, e.startDate, e.endDate,
-                        e.numPeople, e.name, e.type
-                      ])
-                  .then(result => {
-                    console.log('result:', result);
-                    res.json({accessCode: eventAccessCode});
-                  })
-                  .catch(err => console.log(err))})
+      .then(conn => {
+            conn.query(
+                    'INSERT INTO accesscode value (?, ?, ?, ?, ?, ?, ?, ?)',
+                    [
+                    null, eventAccessCode, e.userId, e.startDate, e.endDate,
+                    e.numPeople, e.name, e.type
+                    ])
+                .then(result => {
+                console.log('result:', result);
+                res.json({accessCode: eventAccessCode});
+                })
+                .catch(err => console.log(err))})
       .catch(err => console.log(err));
 });
 
-app.post(
-    '/api/submitform',
-    (req, res) => {
+app.post('/api/submitform',(req, res) => {
+    var d = req.body;
+    console.log(d);
 
+    pool.getConnection()
+    .then(conn => {
+        conn.query('INSERT into users value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+        [null, d.identification, d.ageRange, d.gender, d.country, d.language, d.employmentStatus, d.discipline, d.accessCode, d.valid, d.sensitivity])
+        .then(result => {
+            conn.query('INSERT into users value (?, ?, ?, ?, ?, ?, ?, ?, )')
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500)
+        })
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500)
+    })
+})
 
 app.use(express.static('FrontEnd'))
 
