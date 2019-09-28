@@ -80,9 +80,11 @@ app.get('/api/newaccesscode', (req, res) => {
 
 })
 
-app.post('/api/checkAccessCodeValidity', (req, res) => {
+app.post('/api/checkAccessCodeValidity', (req, response) => {
+    var data = req.params
     var isValid = checkValidity(req.params.accessCode);
-    res.json({
+    
+    response.json({
         success: true,
         isValid: isValid
     })

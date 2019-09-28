@@ -14,14 +14,18 @@
 
 <body>
     <div class="text-white login-clean">
-        <form method="post">
+        <form id="accessCodeForm">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="assets/img/sarLogoSquare.png" width="150"></div>
-            <div class="form-group"><input class="form-control" type="password" name="Access Code" placeholder="Access Code"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Submit</button></div><a class="forgot" href="form2.html">Don't have an access code? Click here</a></form>
+            <div class="form-group"><input id="access-code-input" class="form-control" type="password" name="Access Code" placeholder="Access Code"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block">Submit</button></div><a class="forgot" href="form2.html">Don't have an access code? Click here</a>
+        </form>
     </div>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>
