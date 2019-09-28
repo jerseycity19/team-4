@@ -6,4 +6,3 @@
 - Database
 - QR Code
 
-A
