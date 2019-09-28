@@ -31,5 +31,6 @@ function onCreateNewEvent() {
             console.log(data);
             document.getElementById('accessCode').innerText = data.accessCode;
             getCode(data.accessCode);
+            document.getElementById('submit-button').onclick = null;
         })
 }
