@@ -168,17 +168,9 @@ app.get('/api/getunvalidated', (req, res) => {
     .then(conn => {
         conn.query("SELECT count(user_id), country from users where code_flag = 'false' group by country")
         .then(rows => {
-            console.log(rows);
+            res.json({data: rows});
         })
     })
-
-    // Query
-    // res.json({
-    //     chartData: [{
-    //         country: 'USA',
-    //         numUnvalidated: 100
-    //     }]
-    // });
 });
 
 app.get('/api/getvalidated', (req, res) => {
@@ -192,9 +184,8 @@ app.get('/api/latestresponses', (req, res) => {
     // Query
     pool.getConnection()
     .then(conn => {
-        conn.query('SELECT * FROM users ORDER BY user_id LIMIT 5')
+        conn.query('SELECT * FROM users ORDER BY user_id ASC LIMIT 5')
         .then(rows => {
-            console.log('rows:', rows);
             res.json({ data: rows })
         })
         .catch(err => {
