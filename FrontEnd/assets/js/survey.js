@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(response);
                 window.localStorage.setItem('accessCode', '');
                 window.localStorage.setItem('isValid', '');
-                window.location.pathname = '/thankyou.html'
+                window.location.pathname = '/thankyou.html';
             })
             .catch(err => {
                 console.log("ERROR:", err);

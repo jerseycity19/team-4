@@ -1,5 +1,6 @@
 $(document).ready(() => {
 
+    getDemographicData();
     getLatestData();
 
     function getUnvalidatedData() {
@@ -24,6 +25,33 @@ $(document).ready(() => {
                 dataTable.innerHTML = innerHtmlString;
             })
             .catch(err => console.log(err));
+        })
+    }
+
+    function getDemographicData() {
+        // return new Promise((res, rej) => {
+        axios.get('/api/demographicsdata')
+        .then(({ data }) => {
+
+            var data = data.data;
+            console.log(data.map(x => x.gender));
+            
+            var data = {
+                labels: data.map(x => x.gender),
+                datasets: [{
+                    data: data.map(x => x['count(user_id)']),
+                    colors: []
+                }]
+            }
+
+            var ctx = document.getElementById('demogr').getContext('2d');
+            console.log('Context:', ctx);
+            var donutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+            });
+            console.log(donutChart);
+
         })
     }
 });

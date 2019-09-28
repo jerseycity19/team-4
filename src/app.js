@@ -138,7 +138,7 @@ app.post('/api/submitform',(req, res) => {
         d.ageRange, d.gender, 
         d.country, d.language, 
         d.employmentStatus, d.discipline, 
-        d.accessCode, d.valid, 
+        d.accessCode || '', d.valid || 'false', 
         d.sensitivity, d.selfCensoredFrequency,
         d.othersCensoredFrequency, d.advisedFrequency,
         d.primarySourceConsequences, d.experienceRelatiation,
@@ -209,7 +209,7 @@ app.get('/api/demographicsdata', (req, res) => {
     .then(conn => {
         conn.query("SELECT count(user_id), gender from users group by gender")
         .then(rows => {
-
+            res.json({ data: rows })
         })
     })
 });
