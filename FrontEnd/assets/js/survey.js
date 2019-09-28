@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         axios.post('/api/submitform', surveyData)
             .then(response => {
                 console.log(response);
-                window.localStorage.set('accessCode', '');
-                window.localStorage.set('isValid', '');
+                window.localStorage.setItem('accessCode', '');
+                window.localStorage.setItem('isValid', '');
                 window.location.pathname = '/thankyou.html'
             })
             .catch(err => {

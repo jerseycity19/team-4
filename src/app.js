@@ -32,9 +32,9 @@ function checkCode(code) {
                 console.log(Date.now());
                 res(true);
             }
-        }).catch(err => rej(err))
+        }).catch(err => res(false)) // if an error, just say the code is not valid
     })
-    .catch(err => rej(err));
+    .catch(err => res(false));
   })
 
   // First, check for number of tries remaining

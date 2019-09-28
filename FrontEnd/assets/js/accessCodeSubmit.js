@@ -14,6 +14,7 @@ $(document).ready(() => {
           } else {
             console.log('NOT VALID');
           }
+
           window.localStorage.setItem('accessCode', accessCode);
           window.localStorage.setItem('isValid', response.data.isValid);
           window.location.pathname = '/form2.html';

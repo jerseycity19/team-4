@@ -42,13 +42,22 @@
     </div>
     <div></div>
     <div class="container text-left border rounded-0 border-dark" style="width: 600px;">
-        <div class="form-check text-left" style="margin: 5px;"><input class="form-check-input" type="checkbox" id="formCheck-1" required=""><label class="form-check-label text-left d-lg-flex align-items-lg-start" for="formCheck-1">I understand and agree that the data I submit will be used anonymously in reports, studies and advocacy about self-censorship.</label></div>
+        <div class="form-check text-left" style="margin: 5px;"><input id="checkbox" class="form-check-input" onclick="onCheckboxClick()" type="checkbox" id="formCheck-1" required=""><label class="form-check-label text-left d-lg-flex align-items-lg-start" for="formCheck-1">I understand and agree that the data I submit will be used anonymously in reports, studies and advocacy about self-censorship.</label></div>
     </div>
-    <div class="container text-center"><a class="btn btn-primary text-center" role="button" href="form.html" style="margin-top: 25px;background-color: rgba(73,197,242,0.5);width: 12em;color: rgb(0,0,0);font-size: 20px;">Next</a></div>
+    <div class="container text-center"><button id="nextBtn" class="btn btn-primary text-center" role="button" disabled onclick="goToForm()" style="margin-top: 25px;background-color: rgba(73,197,242,0.5);width: 12em;color: rgb(0,0,0);font-size: 20px;">Next</button></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
+    <script>
+        function onCheckboxClick() {
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function goToForm() {
+            window.location.pathname = '/form.html';
+        }
+    </script>
 </body>
 
 </html>
