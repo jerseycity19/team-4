@@ -130,14 +130,23 @@ app.post('/api/createevent', (req, res) => {
 
 app.post('/api/submitform',(req, res) => {
     var d = req.body;
-    console.log(d);
+
+    var queryParams = [null, d.identification, 
+        d.ageRange, d.gender, 
+        d.country, d.language, 
+        d.employmentStatus, d.discipline, 
+        d.accessCode, d.valid, 
+        d.sensitivity, d.selfCensoredFrequency,
+        d.othersCensoredFrequency, d.advisedFrequency,
+        d.primarySourceConsequences, d.experienceRelatiation,
+        d.awareOthersRetaliation, d.chanceOfSelfSensor,
+    ];
 
     pool.getConnection()
     .then(conn => {
-        conn.query('INSERT into users value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-        [null, d.identification, d.ageRange, d.gender, d.country, d.language, d.employmentStatus, d.discipline, d.accessCode, d.valid, d.sensitivity])
+        conn.query('INSERT into users value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', queryParams)
         .then(result => {
-            conn.query('INSERT into users value (?, ?, ?, ?, ?, ?, ?, ?, )')
+            res.json({ success: true });
         })
         .catch(err => {
             console.log(err);

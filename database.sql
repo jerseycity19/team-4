@@ -9,7 +9,14 @@ employment_status VARCHAR(100) NOT NULL,
 disciple_area VARCHAR(100) NOT NULL,
 access_code VARCHAR(100) NOT NULL,
 code_flag VARCHAR(100) NULL,
-sensitivity VARCHAR(100) NOT NULL
+sensitivity VARCHAR(100) NOT NULL,
+self_censored_frequency VARCHAR(30) NOT NULL,
+others_censored_frequency VARCHAR(30) NOT NULL,
+advised_frequency VARCHAR(30) NOT NULL,
+primary_source_consequences VARCHAR(30) NOT NULL,
+experience_retaliation VARCHAR(30) NOT NULL,
+aware_others_retaliation VARCHAR(30) NOT NULL,
+chance_of_self_censor VARCHAR(30) NOT NULL
 );
 
 

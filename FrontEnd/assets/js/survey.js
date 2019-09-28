@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
             employmentStatus: document.getElementById('employmentStatus').value,
             discipline: document.getElementById('discipline').value,
             sensitivity: document.getElementById('sensitivity').value,
-            q1: document.getElementById('q1').value,
-            q2: document.getElementById('q2').value,
-            q3: document.getElementById('q3').value,
-            q4: document.getElementById('q4').value,
-            q5: document.getElementById('q5').value,
-            q6: document.getElementById('q6').value,
-            q7: document.getElementById('q7').value,
+            selfCensoredFrequency: document.getElementById('self-censored-frequency').value,
+            othersCensoredFrequency: document.getElementById('others-censored-frequency').value,
+            advisedFrequency: document.getElementById('advised-frequency').value,
+            primarySourceConsequences: document.getElementById('primary-source-consequences').value,
+            experienceRelatiation: document.getElementById('experience-retaliation').value,
+            awareOthersRetaliation: document.getElementById('aware-others-retaliation').value,
+            chanceOfSelfSensor: document.getElementById('chance-of-self-censor').value,
             accessCode: accessCode,
             valid: isAccessCodeValid || false,
         };
@@ -52,9 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
         axios.post('/api/submitform', surveyData)
             .then(response => {
                 console.log(response);
+                window.localStorage.set('accessCode', '');
+                window.localStorage.set('isValid', '');
+                window.location.pathname = '/thankyou.html'
             })
             .catch(err => {
                 console.log("ERROR:", err);
+                alert('Could not submit answers. Please try again.');
             })
       });
 });
