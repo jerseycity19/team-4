@@ -150,7 +150,7 @@ function downloadAsCSV() {
 
         var encodedUri = encodeURI()
         var element = document.createElement('a');
-        element.setAttribute('href', encodeURIComponent(csvString));
+        element.setAttribute('href', encodeURI(csvString));
         element.setAttribute('download', 'responses.csv');
         element.style.display = 'none';
 
