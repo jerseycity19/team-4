@@ -7,6 +7,7 @@ country VARCHAR(50) NOT NULL,
 primary_language VARCHAR(50) NOT NULL,
 employment_status VARCHAR(50) NOT NULL,
 disciple_area VARCHAR(50) NOT NULL,
+code_flag VARCHAR(20) NULL,
 sensitivity INT UNSIGNED NOT NULL
 );
 
@@ -27,8 +28,8 @@ CREATE TABLE accesscode(
     key_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     code INT UNSIGNED NOT NULL,
     user_id INT UNSIGNED NOT NULL,
-    start_time  VARCHAR(30) NOT NULL,
-    end_time  VARCHAR(30) NOT NULL,
+    start_time  INT UNSIGNED NOT NULL,
+    end_time  INT UNSIGNED NOT NULL,
     number_people INT UNSIGNED NOT NULL,
     event_name VARCHAR(30) NOT NULL,
     event_type VARCHAR(30) NOT NULL

@@ -13,11 +13,13 @@ function getCode(code) {
 
 function onCreateNewEvent() {
     console.log(typeof(document.getElementById('eventStartDate').value));
+    var dateStringToUnix = (date) => moment(date).unix()
+    console.log(dateStringToUnix(document.getElementById('eventStartDate').value))
 
     var eventData = {
         name: document.getElementById('eventNameInput').value,
-        startDate: document.getElementById('eventStartDate').value,
-        endDate: document.getElementById('eventEndDate').value,
+        startDate: dateStringToUnix(document.getElementById('eventStartDate').value),
+        endDate: dateStringToUnix(document.getElementById('eventEndDate').value),
         type: document.getElementById('eventType').value,
         numPeople: document.getElementById('numPeople').value,
         userId: String(Math.random())
