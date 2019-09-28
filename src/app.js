@@ -15,7 +15,6 @@ var pool = maraidb.createPool({
 const app = express();
 const port = 3000;
 
-<<<<<<< HEAD
 function checkCode(code) {
     pool.getConnection()
         // First, check for number of tries remaining
@@ -42,7 +41,7 @@ function checkCode(code) {
 
 // Generate a unique code 
 function createCode()
-=======
+
 // pool.getConnection()
 // .then(conn => console.log("Connection:", conn))
 // .catch(err => console.log("err:", err))
@@ -58,6 +57,18 @@ pool.getConnection()
 })
 .catch(err => console.log(err));
 
+// pool.getConnection()
+// .then(conn => {
+//     // console.log('Connection:', conn);
+//     conn.query(`INSERT INTO accesscode value(12, 12, 12, ${(moment(Date.now()).format('YYYY-MM-DD HH:mm:ss'))}, ${moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')}, 1)`)
+//     .then(completion => {
+//         console.log('Success:', completion);
+//     })
+//     .catch(err => console.log(err));
+// })
+// .catch(err => console.log(err));
+
+
 function createCode() {
     
 }
@@ -65,11 +76,19 @@ function createCode() {
 function checkValidity(code) {
 
 }
->>>>>>> 59da7525622ddd12ce399ba537a3ee391909f45e
+
 
 app.get('/api/newaccesscode', (req, res) => {
 
 })
+
+app.post('/api/checkAccessCodeValidity', (req, res) => {
+    var isValid = checkValidity(req.params.accessCode);
+    res.json({
+        success: true,
+        isValid: isValid
+    })
+});
 
 app.post('/api/submitform', (req, res) => {
 
