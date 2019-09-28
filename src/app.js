@@ -1,6 +1,7 @@
 const express = require('express');
 const maraidb = require('mariadb');
 const moment = require('moment');
+const bodyParser = require('body-parser');
 
 const db_login = require('./database_login.json');
 
@@ -13,6 +14,8 @@ var pool = maraidb.createPool({
 });
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 const port = 3000;
 
 function checkCode(code) {
@@ -68,7 +71,7 @@ function createCode() {
 
 
 function createCode() {
-    
+    return String(Math.random());
 }
 
 function checkValidity(code) {
@@ -81,13 +84,21 @@ app.get('/api/newaccesscode', (req, res) => {
 })
 
 app.post('/api/checkAccessCodeValidity', (req, response) => {
-    var data = req.params
-    var isValid = checkValidity(req.params.accessCode);
+    var data = req.body
+    var isValid = checkValidity(req.body.accessCode);
     
     response.json({
         success: true,
         isValid: isValid
     })
+});
+
+app.post('/api/createevent', (req, res) => {
+    var eventData = req.params;
+    console.log('event data', req.params, eventData, eventData.name);
+    var eventAccessCode = createCode();
+    // Add event to database
+    res.json({ accessCode: eventAccessCode });
 });
 
 app.post('/api/submitform', (req, res) => {
