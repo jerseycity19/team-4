@@ -7,6 +7,7 @@ country VARCHAR(50) NOT NULL,
 primary_language VARCHAR(50) NOT NULL,
 employment_status VARCHAR(50) NOT NULL,
 disciple_area VARCHAR(50) NOT NULL,
+code_flag VARCHAR(20) NULL,
 sensitivity INT UNSIGNED NOT NULL
 );
 
