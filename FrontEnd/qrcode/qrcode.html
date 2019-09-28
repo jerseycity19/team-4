@@ -5,7 +5,9 @@
 	<div id="qrcode">
 
  	</div>
+ 	<p id="qrfunction">
 
+ 	</p>
  	<script src="qrcode.js"></script>
  	<script>
  	var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -17,6 +19,12 @@
 	correctLevel : QRCode.CorrectLevel.H
 	});
 	qrcode.makeCode('your access code is codeforgood85492');
+	function getCode(code){
+ 		qrcode.makeCode(code);
+ 	}
+ 	getCode("hello world");
  	</script>
+
+
 </body>
 </html>
