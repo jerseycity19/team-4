@@ -192,10 +192,15 @@ app.get('/api/latestresponses', (req, res) => {
     // Query
     pool.getConnection()
     .then(conn => {
-        conn.query('SELECT TOP 5 from users')
+        conn.query('SELECT * FROM users ORDER BY user_id LIMIT 5')
         .then(rows => {
-
+            console.log('rows:', rows);
+            res.json({ data: rows })
         })
+        .catch(err => {
+            res.status(500);
+            console.log("ERROR getting latest responses:", err);
+        });
     })
 });
 
