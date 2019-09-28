@@ -27,7 +27,9 @@ CREATE TABLE accesscode(
     key_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     code INT UNSIGNED NOT NULL,
     user_id INT UNSIGNED NOT NULL,
-    start_time  TIMESTAMP,
-    end_time  TIMESTAMP,
-    number_people INT UNSIGNED NOT NULL
+    start_time  VARCHAR(30) NOT NULL,
+    end_time  VARCHAR(30) NOT NULL,
+    number_people INT UNSIGNED NOT NULL,
+    event_name VARCHAR(30) NOT NULL,
+    event_type VARCHAR(30) NOT NULL
 );

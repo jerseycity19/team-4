@@ -93,11 +93,24 @@ app.post('/api/checkAccessCodeValidity', (req, response) => {
     })
 });
 
+
 app.post('/api/createevent', (req, res) => {
-    var eventData = req.boxy;
+    console.log('Creating event..');
+    var e = req.body;
     var eventAccessCode = createCode();
-    // Add event to database
-    res.json({ accessCode: eventAccessCode });
+
+    console.log(e);
+
+    pool.getConnection()
+    .then(conn => {
+        conn.query("INSERT INTO accesscode value (?, ?, ?, ?, ?, ?, ?, ?)",
+            [null, eventAccessCode, e.userId, e.startDate, e.endDate, e.numPeople, e.name, e.type])
+            .then(result => {
+                console.log('result:', result);
+                res.json({accessCode: eventAccessCode});
+            })
+            .catch(err => console.log(err))
+    }).catch(err => console.log(err));
 });
 
 app.post('/api/submitform', (req, res) => {

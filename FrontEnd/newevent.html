@@ -6,17 +6,28 @@
     <input id="eventNameInput" type="text" />
     
     <p>Start Data</p>
-    <input id="eventStartDate" type="text" />
+    <input id="eventStartDate" type="date" />
 
     <p>End Date</p>
-    <input id="eventEndDate" type="text" />
+    <input id="eventEndDate" type="date" />
 
     <p>Event Type</p>
     <input id="eventType" type="text" />
 
+    <p>Number of People:</p>
+    <input type="number" id="numPeople" />
+
     <br /><br />
     <button onclick="onCreateNewEvent()">Create Event</button>
 
+    <br /><br />
+    <p>Access Code:</p>
+    <p id="accessCode"></p>
+
+    <p>QR Code:</p>
+    <div id="qrcode"></div>
+
+    <script src="assets/js/qrcode.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/newEvent.js"></script>
 </body>
