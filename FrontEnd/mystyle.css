@@ -14,11 +14,11 @@
   border: 5px solid rgb(64, 64, 65);
 }
 
-.row {
+/* .row {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
+} */
 
 h1 {
     text-align: center;

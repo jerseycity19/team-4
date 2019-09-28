@@ -1,0 +1,9 @@
+.latest-table {
+    width: 75vw;
+}
+
+.container {
+    display: flex; 
+    justify-content: space-around;
+    flex-direction: column;
+}

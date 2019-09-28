@@ -108,8 +108,6 @@ app.post('/api/checkAccessCodeValidity', (req, response) => {
       });
 });
 
-
-
 app.post('/api/createevent', (req, res) => {
   console.log('Creating event..');
   var e = req.body;
@@ -163,6 +161,53 @@ app.post('/api/submitform',(req, res) => {
         res.status(500)
     })
 })
+
+// Data Analytics
+app.get('/api/getunvalidated', (req, res) => {
+    pool.getConnection()
+    .then(conn => {
+        conn.query("SELECT count(user_id), country from users where code_flag = 'false' group by country")
+        .then(rows => {
+            console.log(rows);
+        })
+    })
+
+    // Query
+    // res.json({
+    //     chartData: [{
+    //         country: 'USA',
+    //         numUnvalidated: 100
+    //     }]
+    // });
+});
+
+app.get('/api/getvalidated', (req, res) => {
+    pool.getConnection()
+    .then(conn => {
+        conn.query("SELECT count(user_id), country from users where code_flag = 'true' group by country")
+    })
+});
+
+app.get('/api/latestresponses', (req, res) => {
+    // Query
+    pool.getConnection()
+    .then(conn => {
+        conn.query('SELECT TOP 5 from users')
+        .then(rows => {
+
+        })
+    })
+});
+
+app.get('/api/demographicsdata', (req, res) => {
+    pool.getConnection()
+    .then(conn => {
+        conn.query("SELECT count(user_id), gender from users group by gender")
+        .then(rows => {
+
+        })
+    })
+});
 
 app.use(express.static('FrontEnd'))
 
